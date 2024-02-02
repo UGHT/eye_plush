@@ -1,7 +1,10 @@
 package com.github.UGHT.eternis_plush;
 
+
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.SkullBlock;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -17,13 +20,15 @@ import org.slf4j.LoggerFactory;
 
 import java.util.IdentityHashMap;
 
+// Currently crashes when applying item to head. (Set skull type to player)
+
 public class EternisPlush implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod name as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("Eternis Plush");
 
-	public static final Block ETERNIS_PLUSH = new Block(QuiltBlockSettings.create());
+	public static final SkullBlock ETERNIS_PLUSH = new SkullBlock(null, AbstractBlock.Settings.create());
 	public static final Item SCULK_TENDRIL = new Item(new QuiltItemSettings());
 
 	@Override
