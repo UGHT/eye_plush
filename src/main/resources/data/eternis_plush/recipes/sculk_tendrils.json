@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:sculk_vein"
+    }
+  ],
+  "result": {
+    "count": 3,
+    "item": "eternis_plush:sculk_tendrils"
+  }
+}

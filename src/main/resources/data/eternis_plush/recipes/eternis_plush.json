@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "AEA",
+    "SSS"
+  ],
+  "key": {
+    "A": {
+      "item": "minecraft:black_wool"
+    },
+    "E": {
+      "item": "minecraft:ender_eye"
+    },
+    "S": {
+      "item": "eternis_plush:sculk_tendrils"
+    }
+  },
+  "result": {
+    "item": "eternis_plush:eternis_plush",
+    "count": 1
+  }
+}

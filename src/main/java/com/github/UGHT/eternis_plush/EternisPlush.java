@@ -24,14 +24,18 @@ public class EternisPlush implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Eternis Plush");
 
 	public static final Block ETERNIS_PLUSH = new Block(QuiltBlockSettings.create());
+	public static final Item SCULK_TENDRILS = new Item(new QuiltItemSettings());
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		LOGGER.info("Hello Quilt world from {}!", mod.metadata().name());
+		LOGGER.info("It's watching...", mod.metadata().name());
 		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "eternis_plush"), ETERNIS_PLUSH);
-		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "eternis_plush"), new BlockItem(ETERNIS_PLUSH, new QuiltItemSettings().fireproof()));
+		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "eternis_plush"), new BlockItem(ETERNIS_PLUSH, new QuiltItemSettings()));
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
 			entries.addItem(ETERNIS_PLUSH.asItem());
 		});
+
+		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendrils"), SCULK_TENDRILS);
+
 	}
 }
