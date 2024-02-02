@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "eternis_plush:item/sculk_tendrils"
+    "layer0": "eternis_plush:item/sculk_tendril"
   }
 }

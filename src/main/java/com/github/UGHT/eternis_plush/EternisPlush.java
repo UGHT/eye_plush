@@ -24,7 +24,7 @@ public class EternisPlush implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Eternis Plush");
 
 	public static final Block ETERNIS_PLUSH = new Block(QuiltBlockSettings.create());
-	public static final Item SCULK_TENDRILS = new Item(new QuiltItemSettings());
+	public static final Item SCULK_TENDRIL = new Item(new QuiltItemSettings());
 
 	@Override
 	public void onInitialize(ModContainer mod) {
@@ -35,9 +35,9 @@ public class EternisPlush implements ModInitializer {
 			entries.addItem(ETERNIS_PLUSH.asItem());
 		});
 
-		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendrils"), SCULK_TENDRILS);
+		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendril"), SCULK_TENDRIL);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register((entries -> {
-			entries.addItem(SCULK_TENDRILS.asItem());
+			entries.addItem(SCULK_TENDRIL.asItem());
 		}));
 
 	}
