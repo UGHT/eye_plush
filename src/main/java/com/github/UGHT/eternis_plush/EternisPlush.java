@@ -36,6 +36,9 @@ public class EternisPlush implements ModInitializer {
 		});
 
 		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendrils"), SCULK_TENDRILS);
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register((entries -> {
+			entries.addItem(SCULK_TENDRILS.asItem());
+		}));
 
 	}
 }
