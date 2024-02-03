@@ -1,8 +1,10 @@
 package com.github.UGHT.eternis_plush.common.block;
 
 import net.minecraft.block.*;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.fluid.Fluids;
+import net.minecraft.item.Equippable;
 import net.minecraft.item.ItemPlacementContext;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.BooleanProperty;
@@ -14,15 +16,15 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldAccess;
 
-public class PlushBlock extends Block implements Waterloggable {
+public class PlushBlock extends Block implements Equippable, Waterloggable {
 	public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
 	public static final BooleanProperty WATERLOGGED = Properties.WATERLOGGED;
 	public static final VoxelShape FRONT_SHAPE =
-		Block.createCuboidShape(5.0D, 0.01D, 5.0D, 13.0D, 12.0D, 13.0D);
+		Block.createCuboidShape(3.0D, 0.01D, 3.0D, 13.0D, 15.0D, 13.0D);
 	public static final VoxelShape SIDE_SHAPE =
-		Block.createCuboidShape(5.0D, 0.01D, 5.0D, 13.0D, 12.0D, 13.0D);
+		Block.createCuboidShape(3.0D, 0.01D, 3.0D, 13.0D, 15.0D, 13.0D);
 	public static final VoxelShape DEBUG_SHAPE =
-		Block.createCuboidShape(5.0D, 0.01D, 5.0D, 13.0D, 12.0D, 13.0D);
+		Block.createCuboidShape(3.0D, 0.01D, 3.0D, 13.0D, 15.0D, 13.0D);
 
 
 	public PlushBlock(Settings settings) {
@@ -65,4 +67,8 @@ public class PlushBlock extends Block implements Waterloggable {
 		return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
 	}
 
+	@Override
+	public EquipmentSlot getPreferredSlot() {
+			return EquipmentSlot.HEAD;
+	}
 }

@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": { "model": "tutorial:block/example_block" }
+    "facing=east": {
+      "model": "eternis_plush:block/eternis_plush",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "eternis_plush:block/eternis_plush"
+    },
+    "facing=south": {
+      "model": "eternis_plush:block/eternis_plush",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "eternis_plush:block/eternis_plush",
+      "y": 270
+    }
   }
 }

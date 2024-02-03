@@ -1,11 +1,11 @@
 {
 	"required": true,
 	"minVersion": "0.8",
-	"package": "",
+	"package": "com.github.UGHT.eternis_plush.mixin",
 	"compatibilityLevel": "JAVA_17",
 	"mixins": [],
 	"client": [
-      "com.github.UGHT.eternis_plush.mixin.TitleScreenMixin"
+      "TitleScreenMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1

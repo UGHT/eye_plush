@@ -2,8 +2,11 @@ package com.github.UGHT.eternis_plush;
 
 
 import com.github.UGHT.eternis_plush.common.block.PlushBlock;
+import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
 import net.minecraft.block.Block;
+import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
@@ -25,7 +28,7 @@ public class EternisPlush implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("Eternis Plush");
 
-	public static final PlushBlock ETERNIS_PLUSH = new PlushBlock(QuiltBlockSettings.create().hardness(2f).luminance(2));
+	public static final PlushBlock ETERNIS_PLUSH = new PlushBlock(QuiltBlockSettings.create().hardness(0.75f).luminance(2));
 	public static final Item SCULK_TENDRIL = new Item(new QuiltItemSettings());
 
 	@Override
@@ -36,6 +39,8 @@ public class EternisPlush implements ModInitializer {
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
 			entries.addItem(ETERNIS_PLUSH.asItem());
 		});
+
+		BlockRenderLayerMap.INSTANCE.putBlock(EternisPlush.ETERNIS_PLUSH, RenderLayer.getTranslucent());
 
 		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendril"), SCULK_TENDRIL);
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register((entries -> {
