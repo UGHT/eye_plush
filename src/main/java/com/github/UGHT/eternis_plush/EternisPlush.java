@@ -1,17 +1,16 @@
 package com.github.UGHT.eternis_plush;
 
 
-import com.github.UGHT.eternis_plush.common.block.PlushBlock;
+import com.github.UGHT.eternis_plush.common.block.EternisPlushBlock;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.fabric.impl.blockrenderlayer.BlockRenderLayerMapImpl;
-import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroups;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -28,7 +27,7 @@ public class EternisPlush implements ModInitializer {
 	// That way, it's clear which mod wrote info, warnings, and errors.
 	public static final Logger LOGGER = LoggerFactory.getLogger("Eternis Plush");
 
-	public static final PlushBlock ETERNIS_PLUSH = new PlushBlock(QuiltBlockSettings.create().hardness(0.75f).luminance(2));
+	public static final EternisPlushBlock ETERNIS_PLUSH = new EternisPlushBlock(QuiltBlockSettings.create().hardness(0.75f).luminance(2).sounds(BlockSoundGroup.SCULK));
 	public static final Item SCULK_TENDRIL = new Item(new QuiltItemSettings());
 
 	@Override
