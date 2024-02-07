@@ -11,6 +11,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class TitleScreenMixin {
 	@Inject(method = "init", at = @At("TAIL"))
 	public void onInit(CallbackInfo ci) {
-		EternisPlush.LOGGER.info("This line is printed by an example mod mixin!");
+		EternisPlush.LOGGER.info("c!Winsweep lore: Crazy? I was crazy once, they locked me in a room, an amarite room, an amarite room with rats, and rats make me crazy");
 	}
 }

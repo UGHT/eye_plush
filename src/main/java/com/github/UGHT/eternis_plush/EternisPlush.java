@@ -2,8 +2,10 @@ package com.github.UGHT.eternis_plush;
 
 
 import com.github.UGHT.eternis_plush.common.block.EternisPlushBlock;
+import com.github.UGHT.eternis_plush.common.block.WinPlushBlock;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.minecraft.block.Block;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -30,21 +32,30 @@ public class EternisPlush implements ModInitializer {
 	public static final EternisPlushBlock ETERNIS_PLUSH = new EternisPlushBlock(QuiltBlockSettings.create().hardness(0.75f).luminance(2).sounds(BlockSoundGroup.SCULK));
 	public static final Item SCULK_TENDRIL = new Item(new QuiltItemSettings());
 
+	public static final WinPlushBlock WIN_PLUSHIE = new WinPlushBlock(QuiltBlockSettings.create().hardness(0.75f).luminance(2).sounds(BlockSoundGroup.WOOL));
+
 	@Override
 	public void onInitialize(ModContainer mod) {
 		LOGGER.info("It's watching...", mod.metadata().name());
 		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "eternis_plush"), ETERNIS_PLUSH);
 		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "eternis_plush"), new BlockItem(ETERNIS_PLUSH, new QuiltItemSettings()));
-		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
-			entries.addItem(ETERNIS_PLUSH.asItem());
-		});
+
+		Registry.register(Registries.BLOCK, new Identifier(mod.metadata().id(), "winsweep_plush"), WIN_PLUSHIE);
+		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "winsweep_plush"), new BlockItem(WIN_PLUSHIE, new QuiltItemSettings()));
 
 		BlockRenderLayerMap.INSTANCE.putBlock(EternisPlush.ETERNIS_PLUSH, RenderLayer.getTranslucent());
 
 		Registry.register(Registries.ITEM, new Identifier(mod.metadata().id(), "sculk_tendril"), SCULK_TENDRIL);
+
+
 		ItemGroupEvents.modifyEntriesEvent(ItemGroups.INGREDIENTS).register((entries -> {
 			entries.addItem(SCULK_TENDRIL.asItem());
 		}));
+
+		ItemGroupEvents.modifyEntriesEvent(ItemGroups.FUNCTIONAL_BLOCKS).register(entries -> {
+			entries.addItem(ETERNIS_PLUSH.asItem());
+			entries.addItem(WIN_PLUSHIE.asItem());
+		});
 
 	}
 }
